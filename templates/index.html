@@ -1,0 +1,93 @@
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/media/css/index.css"/>
+    <title>IMDb Box</title>
+</head>
+
+<body>
+<div id="logo">
+    <strong>IMDb</strong> Box
+</div>
+<div id="top">
+    <div id="h">
+        generate <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/IMDb_logo.svg"> box
+    </div>
+    <div id="h">
+        of <strong>tv series</strong> or <strong>movies</strong>
+    </div>
+</div>
+
+<div id="page">
+    <h4>preview <span style="font-size: small;font-weight: normal">(normal box)</span></h4>
+    <iframe id="preview-box" src="http://{{ host }}/box/tt2562232/" style="border: 0;height: 216px;width: 548px;overflow: hidden;" frameBorder="0"></iframe>
+    <br>
+    <input id="box-input" type="text" placeholder="IMDb id of the movie or tv series">
+    <code id="code" style="display: none"></code>
+
+    <h4>preview <span style="font-size: small;font-weight: normal">(poster box)</span></h4>
+    <iframe id="preview-posterbox" src="http://{{ host }}/posterbox/tt2562232/" style="border: 0;height: 263px;width: 161px;overflow: hidden;" frameBorder="0"></iframe>
+    <br>
+    <input id="posterbox-input" type="text" placeholder="IMDb id of the movie or tv series">
+    <code id="code-posterbox" style="display: none"></code>
+
+    <h4>preview <span style="font-size: small;font-weight: normal">(actors of the film box)</span></h4>
+    <iframe id="preview-actorsfilmbox" src="http://{{ host }}/actorsfilmbox/tt2562232/" style="border: 0;height: 144px;width: 548px;overflow: hidden;" frameBorder="0"></iframe>
+    <br>
+    <input id="actorsfilmbox-input" type="text" placeholder="IMDb id of the movie or tv series">
+    <code id="code-actorsfilmbox" style="display: none"></code>
+
+</div>
+
+</body>
+
+<script>
+    $("#page #box-input").bind('input', function() {
+        var id = $(this).val();
+
+        if(id != ""){
+            $('#preview-box').attr('src', '/box/'+id);
+            var code = "<iframe src='http://{{ host }}/box/"+id+"' style='border: 0;height: 216px;width: 548px;overflow: hidden;' frameBorder='0'></iframe>";
+            $('#page #code').css('display', 'block');
+            $('#page #code').text(code);
+        }
+
+
+    });
+
+    $("#page #posterbox-input").bind('input', function() {
+        var id = $(this).val();
+
+        if(id != ""){
+            $('#preview-posterbox').attr('src', '/posterbox/'+id);
+            var code = "<iframe src='http://{{ host }}/posterbox/"+id+"' style='border: 0;height: 263px;width: 161px;overflow: hidden;' frameBorder='0'></iframe>";
+            $('#page #code-posterbox').css('display', 'block');
+            $('#page #code-posterbox').text(code);
+        }
+
+
+    });
+
+    $("#page #actorsfilmbox-input").bind('input', function() {
+        var id = $(this).val();
+
+        if(id != ""){
+            $('#preview-actorsfilmbox').attr('src', '/actorsfilmbox/'+id);
+            var code = "<iframe src='http://{{ host }}/actorsfilmbox/"+id+"' style='border: 0;height: 144px;width: 548px;overflow: hidden;' frameBorder='0'></iframe>";
+            $('#page #code-actorsfilmbox').css('display', 'block');
+            $('#page #code-actorsfilmbox').text(code);
+        }
+
+
+    });
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59511852-3', 'auto');
+  ga('send', 'pageview');
+
+</script>

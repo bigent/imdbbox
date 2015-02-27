@@ -1,0 +1,85 @@
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/media/css/actorofthefilm.css"/>
+
+
+<div id="imdb-box">
+    <div id="top"></div>
+    <div id="images"></div>
+</div>
+
+
+
+
+
+
+<script>
+    $.ajax({
+    url: "http://www.myapifilms.com/id",
+
+    // The name of the callback parameter, as specified by the YQL service
+    jsonp: "callback",
+
+    // Tell jQuery we're expecting JSONP
+    dataType: "jsonp",
+
+    // Tell YQL what we want and that we want JSON
+    data: {
+        actors: "F",
+        format: "JSONP",
+        idIMDB: "{{ imdb_no }}"
+    },
+
+    // Work with the response
+    success: function( response ) {
+        var array = [];
+        for (var i = 0; i < response['actors'].length; i++) {
+            if(response['actors'][i]['urlPhoto'] != ""){
+                var url = response['actors'][i]['urlPhoto'];
+                var imageUrl = "http://imdb.wemakesites.net/api/1.0/img/?url="+url.substring(0, url.indexOf("._")) + "._V1_SX214_AL_.jpg";
+                var html1 = "<img class='actorImage' id='actor-"+i+"' style='height: 120px' src='"+imageUrl+"' />";
+                $('#images').append(html1);
+
+                var actorName = response['actors'][i]['actorName'];
+                var character = response['actors'][i]['character'];
+
+                var html2 = "<div id='actor-"+i+"-div' class='actor-infobox'>"+
+                                "<image class='actorImg' src='"+imageUrl+"' /><div class='info'>"+
+                                        "<p title='Actor Name' class='name'>"+actorName+"</p>"+
+                                        "<p title='Character' class='character'>"+character+"</p></div>"+
+                        ""
+                        +"</div>";
+                $('#images').append(html2);
+
+
+
+            }
+
+        }
+        var title = response['title'];
+        $('#top').text(title + " Actors");
+
+        $('#images .actorImage').click(function(){
+            var id = $(this).attr('id');
+            var height = $('#top').height() + 8;
+            $('#'+id+'-div').addClass('actor-infobox-active');
+            $('#'+id+'-div').css('top', height+'px');
+
+            $('#images #'+id+'-div').click(function(){
+                $('#'+id+'-div').removeClass('actor-infobox-active');
+            });
+        });
+
+
+    }
+});
+
+
+
+
+
+
+
+
+</script>
+

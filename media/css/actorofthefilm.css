@@ -1,0 +1,103 @@
+body {
+    font-family: "Verdana", sans-serif;
+}
+
+#imdb-box {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+}
+
+
+
+#imdb-box #images {
+    height: 120px;
+    width: 548px;
+    overflow-x: overlay;
+    white-space: nowrap;
+
+
+}
+
+#imdb-box #top {
+
+    background-color: #111111;
+    width: 528px;
+    border-left: 10px solid #f3ce00;
+    padding: 4px 0 4px 10px;
+
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFFFFF;
+    white-space: nowrap;
+}
+
+#imdb-box #top:hover {
+    white-space: normal;
+}
+
+
+#images::-webkit-scrollbar
+{
+    height: 5px;
+	width: 12px;
+	background-color: #f3ce00;
+}
+
+#images::-webkit-scrollbar-thumb
+{
+	background:#111111;
+}
+
+.actor-infobox {
+    width: 548px;
+    background-color: rgba(17, 17, 17, 0.75);
+    display: none;
+}
+
+.actor-infobox .actorImg {
+    height: 120px;
+}
+
+.actor-infobox .info .name, .actor-infobox .info .character {
+    color: #ffffff;
+}
+
+.actor-infobox .info .name {
+    font-size: 17px;
+    font-weight: bold;
+    margin: 5px 10px 0 10px;
+}
+
+.actor-infobox .info .character {
+    font-size: small;
+    margin: 0 10px 0 10px;
+}
+
+.actor-infobox-active {
+    display: -webkit-box;
+    position: fixed;
+}
+
+.actor-infobox i {
+    z-index: 4;
+    left: 543px;
+    top: 5px;
+    position: absolute;
+    color: #ffffff;
+}
+
+.actor-infobox-e:after {
+    width: 10px;
+    background-color: #f3ce00;
+    font-family: FontAwesome, sans-serif;
+    content: "\f00d";
+    right: 0;
+    position: absolute;
+    font-size: 15px;
+    padding: 3px;
+    width: 12px;
+}
+
+

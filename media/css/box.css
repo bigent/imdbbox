@@ -1,0 +1,95 @@
+#imdb-box {
+    font-family: "Verdana", sans-serif;
+    display: -webkit-box;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #111111;
+    min-width: 548px;
+
+
+}
+
+#imdb-box #poster {
+    width: 142px;
+    height: 210px;
+    border: 3px solid #111111;
+}
+
+#imdb-box #title {
+    padding: 5px 10px 5px 10px;
+    background-color: #111111;
+
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFFFFF;
+    border-left: solid 10px #f3ce00;
+}
+
+#main {
+    display: -webkit-box;
+    max-width: 450px;
+}
+
+#tab {
+    max-width: 400px;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+
+#tab li, #tab li i {
+    font-size: 9px;
+    padding: 3px 5px 3px 0;
+    background-color: #111111;
+    color: #FFFFFF;
+    border-right: solid 1px #f3ce00;
+    margin: 0;
+
+
+}
+
+#tab li {
+    color: #FFFFFF;
+    position: relative;
+    width: 394px;
+
+}
+
+#tab li i:hover , #tab #info:hover{
+    background-color: rgb(46, 46, 46);
+}
+
+#tab li:before, #tab li i:before {
+    color: #f3ce00;
+    font-size: 13px;
+    padding: 3px 4px 3px 4px;
+}
+
+#tab #info {
+    padding: 10px;
+    font-size: 12px;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 379px;
+}
+
+#tab #info:hover {
+    position: relative;
+    white-space: normal;
+}
+
+#tab #info:before {
+    font-family: FontAwesome;
+
+    content: "\f05a";
+
+    color: #FFFFFF;
+
+
+}
+
+

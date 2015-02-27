@@ -1,0 +1,26 @@
+application: imdbbox
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+
+- url: /.*
+  script: main.application
+
+- url: /media/image/(.*\.(svg|svgz))
+  mime_type: images/svg+xml
+  static_files: media/image/\1
+  upload: media/image/(.*\.(svg|svgz))
+
+  
+libraries:
+
+- name: django
+  version: "latest"
+  
+  
+env_variables:
+  DJANGO_SETTINGS_MODULE: 'imdbbox.settings'
+  
